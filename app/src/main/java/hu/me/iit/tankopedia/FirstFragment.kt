@@ -1,5 +1,3 @@
-
-
 package hu.me.iit.tankopedia
 
 import android.os.Bundle

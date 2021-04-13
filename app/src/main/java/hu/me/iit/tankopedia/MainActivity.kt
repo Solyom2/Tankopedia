@@ -1,6 +1,7 @@
 package hu.me.iit.tankopedia
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,9 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.room.Room
 import hu.me.iit.tankopedia.dao.TankDatabase
+import hu.me.iit.tankopedia.model.Tank
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +25,14 @@ class MainActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
 
-        val db = createDB()
+        val db = TankDatabase.getInstance(this).tankDao()
+
+        GlobalScope.launch {
+            db.insert(Tank("T-34-76", "Soviet Union", "Medium Tank", 1940, "76.2 mm F-34 tank gun", "Model V-2-34",
+                47, 40, 45, 4))
+            val fetch = db.getAll()
+            Log.d("DB", fetch.toString())
+        }
 
     }
 
@@ -40,13 +51,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    private fun createDB() : TankDatabase {
-        return Room.databaseBuilder(
-            applicationContext,
-            TankDatabase::class.java, "tankopedia"
-        ).build()
-    }
-
 
 }
