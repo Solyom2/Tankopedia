@@ -14,7 +14,11 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_TankList"
+            app:destination="@id/TankList" />
     </fragment>
+
     <fragment
         android:id="@+id/SecondFragment"
         android:name="hu.me.iit.tankopedia.SecondFragment"
@@ -27,5 +31,12 @@
         <argument
             android:name="myArg"
             app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/TankList"
+        android:name="hu.me.iit.tankopedia.TankList"
+        android:label="@string/tank_list_label"
+        tools:layout="@layout/tank_list">
     </fragment>
 </navigation>

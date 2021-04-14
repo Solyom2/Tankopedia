@@ -1,6 +1,7 @@
 package hu.me.iit.tankopedia
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,10 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import hu.me.iit.tankopedia.dao.TankDatabase
+import hu.me.iit.tankopedia.model.Tank
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -30,15 +35,12 @@ class FirstFragment : Fragment() {
             val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
             val currentCount = showCountTextView.text.toString().toInt()
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount)
-
-
             findNavController().navigate(action)
-
         }
 
         view.findViewById<Button>(R.id.button_search).setOnClickListener() {
-            val myToast = Toast.makeText(context, "Hello tanker!", Toast.LENGTH_SHORT)
-            myToast.show()
+            val action = FirstFragmentDirections.actionFirstFragmentToTankList()
+            findNavController().navigate(action)
         }
 
         view.findViewById<Button>(R.id.button_count).setOnClickListener() {
@@ -52,6 +54,7 @@ class FirstFragment : Fragment() {
         var count = result.toInt()
         count++
         showCountTextView.text = count.toString()
+        val db = TankDatabase.getInstance(super.requireContext()).tankDao()
     }
 
 }

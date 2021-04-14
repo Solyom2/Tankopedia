@@ -27,13 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         val db = TankDatabase.getInstance(this).tankDao()
 
-        GlobalScope.launch {
-            db.insert(Tank("T-34-76", "Soviet Union", "Medium Tank", 1940, "76.2 mm F-34 tank gun", "Model V-2-34",
-                47, 40, 45, 4))
-            val fetch = db.getAll()
-            Log.d("DB", fetch.toString())
-        }
-
+        /*GlobalScope.launch {
+            for (item in tanks) {
+                db.insert(item)
+            }
+        }*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
