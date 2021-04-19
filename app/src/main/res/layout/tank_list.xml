@@ -22,4 +22,94 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableLayout
+            android:id="@+id/tank_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tank_list_header"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:id="@+id/name_country_row"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0">
+
+                <TextView
+                    android:id="@+id/name_textView"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:text="Tank name"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/country_textView"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:text="Tank country"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/type_year_row"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0">
+
+                <TextView
+                    android:id="@+id/type_textView"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:text="Tank type"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/year_textView"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:text="Tank year"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/buttons_row"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:background="#b0b0b0"
+                android:paddingVertical="4dp"
+                >
+
+                <Button
+                    android:id="@+id/modify_tank_button"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/modify_button_background"
+                    android:text="@string/modify_tank_button_text"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/delete_tank_button"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/delete_button_background"
+                    android:text="@string/delete_tank_button_text"
+                    android:textColor="@color/white" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

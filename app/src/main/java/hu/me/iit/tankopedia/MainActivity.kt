@@ -20,18 +20,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
-
         val db = TankDatabase.getInstance(this).tankDao()
-
-        /*GlobalScope.launch {
-            for (item in tanks) {
-                db.insert(item)
-            }
-        }*/
+        var tanks: List<Tank>? = null
+        GlobalScope.launch {
+           tanks = db.getAll()
+        }
+        Log.d("LIST", tanks.toString())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
