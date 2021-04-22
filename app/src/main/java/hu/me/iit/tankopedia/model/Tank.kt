@@ -17,5 +17,6 @@ data class Tank(
     @ColumnInfo(name = "rearArmour") val rearArmour: Int?,
     @ColumnInfo(name = "crew") val crew: Int?,
     @ColumnInfo(name = "image") val image: String?,
+    @ColumnInfo(name = "description") val description: String?,
     @PrimaryKey(autoGenerate = true) val id: Int? = null
 )

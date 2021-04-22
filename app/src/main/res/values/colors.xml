@@ -12,6 +12,7 @@
     <color name="toolbarBackground">#006400</color>
 
     <color name="tank_table_row_background">#B0B0B0</color>
+    <color name="tank_table_second_row_background">#99FF99</color>
     <color name="delete_button_background">#FF0000</color>
     <color name="modify_button_background">#00008B</color>
 </resources>
