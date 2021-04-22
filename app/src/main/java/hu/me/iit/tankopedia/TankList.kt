@@ -45,7 +45,6 @@ class TankList : Fragment() {
         var rowStrip = 0
         if (tanks != null) {
             for(tank in tanks) {
-                if(rowStrip >= 2) break
                 Log.d("ITER", tank.toString())
 
                 val tankTable = view.findViewById<TableLayout>(R.id.tank_table)
@@ -53,10 +52,11 @@ class TankList : Fragment() {
                 layoutInflater.inflate(R.layout.type_year_row, tankTable,true)
                 layoutInflater.inflate(R.layout.buttons_row, tankTable,true)
 
+                val childrenCount = tankTable.childCount
                 val rows = tankTable.children.toList()
-                val nameCountryRow = rows[0] as TableRow
-                val typeYearRow = rows[1] as TableRow
-                val buttonsRow = rows[2] as TableRow
+                val nameCountryRow = rows[childrenCount-3] as TableRow
+                val typeYearRow = rows[childrenCount-2] as TableRow
+                val buttonsRow = rows[childrenCount-1] as TableRow
 
                 val nameCountryTextViews = (nameCountryRow.children.toList()) as List<TextView>
                 tankListService.populateNameCountryRow(nameCountryTextViews, tank)
