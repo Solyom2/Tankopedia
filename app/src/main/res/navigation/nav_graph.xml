@@ -38,5 +38,18 @@
         android:name="hu.me.iit.tankopedia.TankList"
         android:label="@string/tank_list_label"
         tools:layout="@layout/tank_list">
+        <action
+            android:id="@+id/action_TankList_to_TankDetails"
+            app:destination="@id/TankDetails" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/TankDetails"
+        android:name="hu.me.iit.tankopedia.TankList"
+        android:label="@string/tank_details_label"
+        tools:layout="@layout/tank_details">
+        <argument
+            android:name="tank"
+            app:argType="reference" />
     </fragment>
 </navigation>
