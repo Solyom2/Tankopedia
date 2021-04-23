@@ -16,4 +16,16 @@
     <string name="tank_list_header_text">World of Tanks</string>
     <string name="modify_tank_button_text">Modify</string>
     <string name="delete_tank_button_text">Delete</string>
+
+    <string name="details_country">Country: %s</string>
+    <string name="details_type">Type: %s</string>
+    <string name="details_year">Year: %d</string>
+    <string name="details_gun">Gun: %s</string>
+    <string name="details_engine">Engine: %s</string>
+    <string name="details_crew">Number of crew members: %d</string>
+    <string name="details_armour_layout">Armour Layout:</string>
+    <string name="details_front_armour">%d mm</string>
+    <string name="details_side_armour">%d mm</string>
+    <string name="details_rear_armour">%d mm</string>
+
 </resources>

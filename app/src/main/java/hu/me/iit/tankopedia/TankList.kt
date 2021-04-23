@@ -40,12 +40,10 @@ class TankList : Fragment() {
     private fun populateTable(view: View) {
         val db = TankDatabase.getInstance(super.requireContext()).tankDao()
         val tanks = tankListService.queryDatabase(db)
-        Log.d("LS", tanks.toString())
 
         var rowStrip = 0
         if (tanks != null) {
             for(tank in tanks) {
-                Log.d("ITER", tank.toString())
 
                 val tankTable = view.findViewById<TableLayout>(R.id.tank_table)
                 layoutInflater.inflate(R.layout.name_country_row, tankTable,true)
@@ -61,7 +59,10 @@ class TankList : Fragment() {
                 val nameCountryTextViews = (nameCountryRow.children.toList()) as List<TextView>
                 tankListService.populateNameCountryRow(nameCountryTextViews, tank)
                 nameCountryTextViews[0].setOnClickListener {
-                    Log.d("NCROW", tank.toString())
+                    if(tank.id != null) {
+                        val action = TankListDirections.actionTankListToTankDetails(tank.id)
+                        findNavController().navigate(action)
+                    }
                 }
 
                 val typeYearTextViews = (typeYearRow.children.toList()) as List<TextView>
@@ -82,34 +83,8 @@ class TankList : Fragment() {
                     buttonsRow.setBackgroundColor(resources.getColor(R.color.tank_table_second_row_background))
                 }
                 rowStrip++
-
-                /*newNameCountryRow?.findViewById<TextView>(R.id.name_textView)?.text = tank.name
-                newNameCountryRow?.findViewById<TextView>(R.id.country_textView)?.text = tank.nation
-                newTypeYearRow?.findViewById<TextView>(R.id.type_textView)?.text = tank.type
-                newTypeYearRow?.findViewById<TextView>(R.id.year_textView)?.text = tank.year.toString()
-
-                if(rowStrip%2 == 0) {
-                    newNameCountryRow?.setBackgroundColor(resources.getColor(R.color.tank_table_second_row_background))
-                    newNameCountryRow?.setBackgroundColor(resources.getColor(R.color.tank_table_second_row_background))
-                    newButtonsRow?.setBackgroundColor(resources.getColor(R.color.tank_table_second_row_background))
-                }
-                rowStrip++
-
-                tankTableLayout.addView(newNameCountryRow)
-                tankTableLayout.addView(newTypeYearRow)
-                tankTableLayout.addView(newButtonsRow)*/
             }
         }
-    }
-
-    private fun queryDatabase(): List<Tank>? {
-        var tanks: List<Tank>? = null
-        GlobalScope.launch {
-            val db = TankDatabase.getInstance(super.requireContext()).tankDao()
-            tanks = db.getAll()
-        }
-        Thread.sleep(1000)
-        return tanks
     }
 
 }

@@ -41,15 +41,18 @@
         <action
             android:id="@+id/action_TankList_to_TankDetails"
             app:destination="@id/TankDetails" />
+        <action
+            android:id="@+id/action_TankList_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/TankDetails"
-        android:name="hu.me.iit.tankopedia.TankList"
+        android:name="hu.me.iit.tankopedia.TankDetails"
         android:label="@string/tank_details_label"
         tools:layout="@layout/tank_details">
         <argument
             android:name="tank"
-            app:argType="reference" />
+            app:argType="integer" />
     </fragment>
 </navigation>

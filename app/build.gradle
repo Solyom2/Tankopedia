@@ -55,7 +55,8 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    def picasso_version = "2.71828"
+    implementation "com.squareup.picasso:picasso:$picasso_version"
 }
 
 apply plugin: "androidx.navigation.safeargs"

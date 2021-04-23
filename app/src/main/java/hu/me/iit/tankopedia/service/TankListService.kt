@@ -10,10 +10,9 @@ import hu.me.iit.tankopedia.model.Tank
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class TankListService constructor() {
+class TankListService {
 
     fun populateNameCountryRow(textViews: List<TextView>, tank: Tank) {
-        Log.d("SERV", tank.name!!)
         textViews[0].text = tank.name
         textViews[1].text = tank.nation
     }
