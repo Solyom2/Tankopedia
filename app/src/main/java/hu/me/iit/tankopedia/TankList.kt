@@ -70,7 +70,10 @@ class TankList : Fragment() {
 
                 val buttonsList = (buttonsRow.children.toList()) as List<Button>
                 buttonsList[0].setOnClickListener {
-                    Log.d("MODIFY", tank.toString())
+                    if(tank.id != null) {
+                        val action = TankListDirections.actionTankListToTankForm(true, tank.id)
+                        findNavController().navigate(action)
+                    }
                 }
 
                 buttonsList[1].setOnClickListener {

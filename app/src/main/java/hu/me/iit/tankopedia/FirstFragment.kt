@@ -32,7 +32,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_add).setOnClickListener {
-            val action = FirstFragmentDirections.actionFirstFragmentToTankForm(false)
+            val action = FirstFragmentDirections.actionFirstFragmentToTankForm(false, 1)
             findNavController().navigate(action)
         }
 
