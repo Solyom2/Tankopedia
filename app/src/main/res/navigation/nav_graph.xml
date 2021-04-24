@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_TankList"
             app:destination="@id/TankList" />
+        <action
+            android:id="@+id/action_FirstFragment_to_TankForm"
+            app:destination="@id/TankForm" />
     </fragment>
 
     <fragment
@@ -41,9 +44,6 @@
         <action
             android:id="@+id/action_TankList_to_TankDetails"
             app:destination="@id/TankDetails" />
-        <action
-            android:id="@+id/action_TankList_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
     </fragment>
 
     <fragment
@@ -54,5 +54,15 @@
         <argument
             android:name="tank"
             app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/TankForm"
+        android:name="hu.me.iit.tankopedia.TankForm"
+        android:label="@string/tank_form_label"
+        tools:layout="@layout/tank_form">
+        <argument
+            android:name="modify"
+            app:argType="boolean" />
     </fragment>
 </navigation>

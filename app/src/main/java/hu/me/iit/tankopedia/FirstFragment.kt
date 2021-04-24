@@ -32,9 +32,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_add).setOnClickListener {
-            val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
-            val currentCount = showCountTextView.text.toString().toInt()
-            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount)
+            val action = FirstFragmentDirections.actionFirstFragmentToTankForm(false)
             findNavController().navigate(action)
         }
 
@@ -43,18 +41,7 @@ class FirstFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        view.findViewById<Button>(R.id.button_count).setOnClickListener() {
-            countMe(view)
-        }
-    }
 
-    private fun countMe(view: View) {
-        val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
-        val result = showCountTextView.text.toString()
-        var count = result.toInt()
-        count++
-        showCountTextView.text = count.toString()
-        val db = TankDatabase.getInstance(super.requireContext()).tankDao()
     }
 
 }

@@ -6,9 +6,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="tank_list_label">Tank List Fragment</string>
     <string name="tank_details_label">Tank Details Fragment</string>
+    <string name="tank_form_label">Tank Form Fragment</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">0</string>
+    <string name="welcome_text">Tankopedia</string>
     <string name="random_header">Here is a random number between 0 and %d.</string>
     <string name="search_button_text">Search</string>
     <string name="add_button_text">Add tank</string>
@@ -16,6 +17,8 @@
     <string name="tank_list_header_text">World of Tanks</string>
     <string name="modify_tank_button_text">Modify</string>
     <string name="delete_tank_button_text">Delete</string>
+    <string name="ok_button_text">OK</string>
+    <string name="cancel_button_text">Cancel</string>
 
     <string name="details_country">Country: %s</string>
     <string name="details_type">Type: %s</string>
@@ -28,4 +31,13 @@
     <string name="details_side_armour">%d mm</string>
     <string name="details_rear_armour">%d mm</string>
 
+    <string-array name="types_array">
+        <item>Light tank</item>
+        <item>Medium tank</item>
+        <item>Heavy tank</item>
+        <item>Tank destroyer</item>
+        <item>SP Artillery</item>
+        <item>MBT</item>
+        <item>IFV</item>
+    </string-array>
 </resources>
