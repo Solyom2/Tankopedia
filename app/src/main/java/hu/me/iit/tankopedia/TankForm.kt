@@ -38,13 +38,13 @@ class TankForm : Fragment() {
         var tank: Tank? = null
 
         populateTypesList(view)
-        populateButtons(view, db)
 
         if(args.modify) {
             tank = tankFormService.queryDatabase(db, args.tank)
             tankFormService.populateFields(view, tank)
         }
 
+        populateButtons(view, db, tank)
     }
 
 
@@ -61,10 +61,14 @@ class TankForm : Fragment() {
         }
     }
 
-    private fun populateButtons(view: View, db: TankDao) {
+    private fun populateButtons(view: View, db: TankDao, tank: Tank?) {
         if(args.modify) {
             view.findViewById<Button>(R.id.form_ok_button).setOnClickListener {
-
+                val success = modifyTank(view, db, tank)
+                if(success) {
+                    val action = TankFormDirections.actionTankFormToTankList()
+                    findNavController().navigate(action)
+                }
             }
             view.findViewById<Button>(R.id.form_cancel_button).setOnClickListener {
                 val action = TankFormDirections.actionTankFormToTankList()
@@ -73,9 +77,11 @@ class TankForm : Fragment() {
         }
         else {
             view.findViewById<Button>(R.id.form_ok_button).setOnClickListener {
-                addTank(view, db)
-                val action = TankFormDirections.actionTankFormToFirstFragment()
-                findNavController().navigate(action)
+                val success = addTank(view, db)
+                if(success) {
+                    val action = TankFormDirections.actionTankFormToFirstFragment()
+                    findNavController().navigate(action)
+                }
             }
             view.findViewById<Button>(R.id.form_cancel_button).setOnClickListener {
                 val action = TankFormDirections.actionTankFormToFirstFragment()
@@ -84,22 +90,42 @@ class TankForm : Fragment() {
         }
     }
 
-    private fun addTank(view: View, db: TankDao) {
+    private fun addTank(view: View, db: TankDao): Boolean {
         val textFields = tankFormService.getTextFields(view)
         val numericFields = tankFormService.getNumericFields(view)
 
         if(!tankFormService.validateTextInput(textFields)) {
             val toast = Toast.makeText(super.requireContext(), "None of the text fields can be empty", Toast.LENGTH_SHORT)
             toast.show()
-            return
+            return false
         }
         if(!tankFormService.validateNumericInput(numericFields)) {
             val toast = Toast.makeText(super.requireContext(), "None of the numeric fields can be empty or less than zero", Toast.LENGTH_SHORT)
             toast.show()
-            return
+            return false
         }
 
         tankFormService.createTank(view, db)
+        return true
+    }
+
+    private fun modifyTank(view: View, db: TankDao, tank: Tank?): Boolean {
+        val textFields = tankFormService.getTextFields(view)
+        val numericFields = tankFormService.getNumericFields(view)
+
+        if(!tankFormService.validateTextInput(textFields)) {
+            val toast = Toast.makeText(super.requireContext(), "None of the text fields can be empty", Toast.LENGTH_SHORT)
+            toast.show()
+            return false
+        }
+        if(!tankFormService.validateNumericInput(numericFields)) {
+            val toast = Toast.makeText(super.requireContext(), "None of the numeric fields can be empty or less than zero", Toast.LENGTH_SHORT)
+            toast.show()
+            return false
+        }
+
+        tankFormService.updateTank(view, db, tank)
+        return true
     }
 
 }

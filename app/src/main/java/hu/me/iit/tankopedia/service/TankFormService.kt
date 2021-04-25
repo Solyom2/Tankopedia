@@ -14,14 +14,21 @@ class TankFormService {
 
     fun validateTextInput(fields: List<String>): Boolean {
         for(field in fields) {
-            if(TextUtils.isEmpty(field)) return false
+            if(TextUtils.isEmpty(field)) {
+                return false
+            }
         }
         return true
     }
 
     fun validateNumericInput(fields: List<EditText>): Boolean {
         for(field in fields) {
-            if(TextUtils.isEmpty(field.text.toString()) && field.text.toString().toInt() < 0) return false
+            if(TextUtils.isEmpty(field.text.toString())) {
+                return false
+            }
+            if(field.text.toString().toInt() < 0) {
+                return false
+            }
         }
         return true
     }
@@ -105,6 +112,27 @@ class TankFormService {
         val tank = Tank(name, country, type, year, gun, engine, frontArmour, sideArmour, rearArmour, crew, image, description)
         GlobalScope.launch {
             db.insert(tank)
+        }
+        Thread.sleep(1000)
+    }
+
+    fun updateTank(view: View, db: TankDao, tank: Tank?) {
+        val name = view.findViewById<EditText>(R.id.form_name).text.toString()
+        val country = view.findViewById<EditText>(R.id.form_country).text.toString()
+        val type = view.findViewById<Spinner>(R.id.types_spinner).selectedItem.toString()
+        val year = view.findViewById<EditText>(R.id.form_year).text.toString().toInt()
+        val crew = view.findViewById<EditText>(R.id.form_crew).text.toString().toInt()
+        val gun = view.findViewById<EditText>(R.id.form_gun).text.toString()
+        val engine = view.findViewById<EditText>(R.id.form_engine).text.toString()
+        val frontArmour = view.findViewById<EditText>(R.id.form_armour_front).text.toString().toInt()
+        val sideArmour = view.findViewById<EditText>(R.id.form_armour_side).text.toString().toInt()
+        val rearArmour = view.findViewById<EditText>(R.id.form_armour_rear).text.toString().toInt()
+        val image = view.findViewById<EditText>(R.id.form_image_url).text.toString()
+        val description = view.findViewById<EditText>(R.id.form_description).text.toString()
+
+        val newTank = Tank(name, country, type, year, gun, engine, frontArmour, sideArmour, rearArmour, crew, image, description, tank?.id)
+        GlobalScope.launch {
+            db.update(newTank)
         }
         Thread.sleep(1000)
     }
