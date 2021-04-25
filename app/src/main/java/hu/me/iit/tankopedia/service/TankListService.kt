@@ -31,4 +31,11 @@ class TankListService {
         return tanks
     }
 
+    fun deleteTank(db: TankDao, tank: Tank) {
+        GlobalScope.launch {
+            db.delete(tank)
+        }
+        Thread.sleep(1000)
+    }
+
 }

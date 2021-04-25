@@ -42,10 +42,10 @@ class TankList : Fragment() {
         val tanks = tankListService.queryDatabase(db)
 
         var rowStrip = 0
+        val tankTable = view.findViewById<TableLayout>(R.id.tank_table)
+        tankTable.removeAllViewsInLayout()
         if (tanks != null) {
             for(tank in tanks) {
-
-                val tankTable = view.findViewById<TableLayout>(R.id.tank_table)
                 layoutInflater.inflate(R.layout.name_country_row, tankTable,true)
                 layoutInflater.inflate(R.layout.type_year_row, tankTable,true)
                 layoutInflater.inflate(R.layout.buttons_row, tankTable,true)
@@ -75,9 +75,9 @@ class TankList : Fragment() {
                         findNavController().navigate(action)
                     }
                 }
-
                 buttonsList[1].setOnClickListener {
-                    Log.d("DELETE", tank.toString())
+                    tankListService.deleteTank(db, tank)
+                    populateTable(view)
                 }
 
                 if(rowStrip%2 == 0) {
