@@ -32,10 +32,10 @@
     <string name="details_rear_armour">%d mm</string>
 
     <string-array name="types_array">
-        <item>Light tank</item>
-        <item>Medium tank</item>
-        <item>Heavy tank</item>
-        <item>Tank destroyer</item>
+        <item>Light Tank</item>
+        <item>Medium Tank</item>
+        <item>Heavy Tank</item>
+        <item>Tank Destroyer</item>
         <item>SP Artillery</item>
         <item>MBT</item>
         <item>IFV</item>
