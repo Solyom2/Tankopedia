@@ -15,7 +15,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
         android:background="@color/white"
-        android:hint="Tank name"
+        android:hint="@string/name_hint"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="#52afaa"
@@ -29,7 +29,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="Tank country"
+        android:hint="@string/country_hint"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="#52afaa"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
         android:layout_marginTop="15dp"
-        android:text="Tank type:"
+        android:text="@string/type_hint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/form_country" />
 
@@ -54,8 +54,7 @@
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/form_type_label"
-        app:layout_constraintTop_toBottomOf="@+id/form_country"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/form_country" />
 
     <TextView
         android:id="@+id/form_year_label"
@@ -63,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
-        android:text="Year:"
+        android:text="@string/year_hint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/form_type_label" />
 
@@ -73,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
-        android:text="Number of crew members:"
+        android:text="@string/crew_hint"
         app:layout_constraintStart_toEndOf="@+id/form_year"
         app:layout_constraintTop_toBottomOf="@+id/form_type_label" />
 
@@ -84,7 +83,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="Year"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -100,7 +98,6 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
         android:background="@color/white"
-        android:hint="Crew"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -115,7 +112,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="Tank gun"
+        android:hint="@string/gun_hint"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="#52afaa"
@@ -129,7 +126,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="Tank engine"
+        android:hint="@string/engine_hint"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="#52afaa"
@@ -143,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
-        android:text="Armour:"
+        android:text="@string/armour_hint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/form_engine" />
 
@@ -154,7 +151,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="Front"
+        android:hint="@string/front_hint"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -169,7 +166,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="Side"
+        android:hint="@string/side_hint"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -185,7 +182,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
         android:background="@color/white"
-        android:hint="Rear"
+        android:hint="@string/rear_hint"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -199,7 +196,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="Image URL"
+        android:hint="@string/image_url_hint"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="#52afaa"
@@ -213,7 +210,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="15dp"
         android:background="@color/white"
-        android:hint="Description"
+        android:hint="@string/description_hint"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="#52afaa"

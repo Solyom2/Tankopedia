@@ -23,20 +23,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/tank_list_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tank_list_header">
+        app:layout_constraintTop_toBottomOf="@+id/tank_list_header"
+        android:paddingBottom="100dp">
         <TableLayout
             android:id="@+id/tank_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:stretchColumns="*">
         </TableLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

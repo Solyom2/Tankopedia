@@ -19,6 +19,7 @@
     <string name="delete_tank_button_text">Delete</string>
     <string name="ok_button_text">OK</string>
     <string name="cancel_button_text">Cancel</string>
+    <string name="back_button_text">Back</string>
 
     <string name="details_country">Country: %s</string>
     <string name="details_type">Type: %s</string>
@@ -30,6 +31,20 @@
     <string name="details_front_armour">%d mm</string>
     <string name="details_side_armour">%d mm</string>
     <string name="details_rear_armour">%d mm</string>
+
+    <string name="name_hint">Tank name</string>
+    <string name="country_hint">Tank country</string>
+    <string name="type_hint">Tank type:</string>
+    <string name="year_hint">Year:</string>
+    <string name="crew_hint">Number of crew members:</string>
+    <string name="gun_hint">Tank gun</string>
+    <string name="engine_hint">Tank engine</string>
+    <string name="armour_hint">Armour:</string>
+    <string name="front_hint">Front</string>
+    <string name="side_hint">Side</string>
+    <string name="rear_hint">Rear</string>
+    <string name="image_url_hint">Image URL</string>
+    <string name="description_hint">Description</string>
 
     <string-array name="types_array">
         <item>Light Tank</item>
