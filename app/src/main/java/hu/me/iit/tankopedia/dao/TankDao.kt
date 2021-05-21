@@ -18,6 +18,12 @@ interface TankDao {
     @Query("SELECT * FROM tank WHERE name LIKE :name")
     suspend fun findByName(name: String): Tank
 
+    @Query("SELECT DISTINCT nation FROM tank")
+    suspend fun queryCountries(): List<String>
+
+    @Query("SELECT DISTINCT type FROM tank")
+    suspend fun queryTypes(): List<String>
+
     @Insert
     suspend fun insert(tank: Tank)
 
