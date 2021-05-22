@@ -19,10 +19,10 @@ interface TankDao {
     suspend fun findByName(name: String): Tank
 
     @Query("SELECT DISTINCT nation FROM tank")
-    suspend fun queryCountries(): List<String>
+    suspend fun queryCountries(): MutableList<String>
 
     @Query("SELECT DISTINCT type FROM tank")
-    suspend fun queryTypes(): List<String>
+    suspend fun queryTypes(): MutableList<String>
 
     @Insert
     suspend fun insert(tank: Tank)

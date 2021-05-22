@@ -38,4 +38,24 @@ class TankListService {
         Thread.sleep(1000)
     }
 
+    fun queryTypes(db: TankDao): List<String> {
+        var types: List<String> = emptyList()
+        GlobalScope.launch {
+            types = db.queryTypes()
+        }
+        Thread.sleep(1000)
+        types.plus("Any")
+        return types
+    }
+
+    fun queryCountries(db: TankDao): List<String> {
+        var countries: List<String> = emptyList()
+        GlobalScope.launch {
+            countries = db.queryCountries()
+        }
+        Thread.sleep(1000)
+        countries.plus("Any")
+        return countries
+    }
+
 }

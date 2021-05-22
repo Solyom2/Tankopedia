@@ -5,10 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TableLayout
-import android.widget.TableRow
-import android.widget.TextView
+import android.widget.*
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -34,6 +31,7 @@ class TankList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        populateSpinners(view)
         populateTable(view)
     }
 
@@ -88,6 +86,29 @@ class TankList : Fragment() {
                 rowStrip++
             }
         }
+    }
+
+    private fun populateSpinners(view: View) {
+        val db = TankDatabase.getInstance(super.requireContext()).tankDao()
+        var typesList = tankListService.queryTypes(db)
+        var countriesList = tankListService.queryCountries(db)
+
+        var spinner: Spinner = view.findViewById(R.id.list_types_spinner)
+        var adapter: ArrayAdapter<String>? = typesList.let {
+            ArrayAdapter<String>(
+                    requireContext(),
+                    android.R.layout.simple_spinner_item, it
+            )
+        }
+        spinner.adapter = adapter
+        spinner = view.findViewById(R.id.list_countries_spinner)
+        adapter = countriesList.let {
+            ArrayAdapter<String>(
+                    requireContext(),
+                    android.R.layout.simple_spinner_item, it
+            )
+        }!!
+        spinner.adapter = adapter
     }
 
 }
