@@ -7,7 +7,7 @@ import hu.me.iit.tankopedia.model.Tank
 interface TankDao {
 
     @Query("SELECT * FROM tank")
-    suspend fun getAll(): List<Tank>
+    suspend fun getAll(): MutableList<Tank>
 
     @Query("SELECT * FROM tank WHERE id IN (:tankIds)")
     suspend fun getAllByIds(tankIds: IntArray): List<Tank>

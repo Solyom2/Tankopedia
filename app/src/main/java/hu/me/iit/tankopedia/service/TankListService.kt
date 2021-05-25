@@ -22,8 +22,8 @@ class TankListService {
         textViews[1].text = tank.year.toString()
     }
 
-    fun queryDatabase(db: TankDao): List<Tank>? {
-        var tanks: List<Tank>? = null
+    fun queryDatabase(db: TankDao): MutableList<Tank>? {
+        var tanks: MutableList<Tank>? = null
         GlobalScope.launch {
             tanks = db.getAll()
         }
@@ -38,23 +38,23 @@ class TankListService {
         Thread.sleep(1000)
     }
 
-    fun queryTypes(db: TankDao): List<String> {
-        var types: List<String> = emptyList()
+    fun queryTypes(db: TankDao): MutableList<String> {
+        var types: MutableList<String> = mutableListOf()
         GlobalScope.launch {
             types = db.queryTypes()
         }
         Thread.sleep(1000)
-        types.plus("Any")
+        types.add("Any")
         return types
     }
 
-    fun queryCountries(db: TankDao): List<String> {
-        var countries: List<String> = emptyList()
+    fun queryCountries(db: TankDao): MutableList<String> {
+        var countries: MutableList<String> = mutableListOf()
         GlobalScope.launch {
             countries = db.queryCountries()
         }
         Thread.sleep(1000)
-        countries.plus("Any")
+        countries.add("Any")
         return countries
     }
 
