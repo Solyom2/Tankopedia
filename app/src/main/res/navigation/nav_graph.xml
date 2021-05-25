@@ -12,9 +12,6 @@
         tools:layout="@layout/fragment_first">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
             android:id="@+id/action_FirstFragment_to_TankList"
             app:destination="@id/TankList" />
         <action
@@ -47,6 +44,9 @@
         <action
             android:id="@+id/action_TankList_to_TankForm"
             app:destination="@id/TankForm" />
+        <action
+            android:id="@+id/action_TankList_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
     </fragment>
 
     <fragment

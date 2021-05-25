@@ -142,7 +142,8 @@ class TankList : Fragment() {
             populateTable(view)
         }
         view.findViewById<Button>(R.id.list_back_button).setOnClickListener {
-
+            val action = TankListDirections.actionTankListToFirstFragment()
+            findNavController().navigate(action)
         }
     }
 
