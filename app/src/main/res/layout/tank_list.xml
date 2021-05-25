@@ -29,7 +29,8 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toStartOf="@id/list_countries_spinner"
         app:layout_constraintStart_toEndOf="@+id/list_search_name"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"/>
 
     <Spinner
         android:id="@+id/list_countries_spinner"
@@ -38,7 +39,8 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/list_types_spinner"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"/>
 
     <Button
         android:id="@+id/list_back_button"

@@ -45,8 +45,9 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch {
             tanks = db.getAll()
         }
+        Thread.sleep(3000)
 
-        if(tanks?.isEmpty() == true || tanks == null) {
+        if(tanks == null || tanks!!.isEmpty()) {
             val datas = listOf(
                     Tank("T-34-76", "Soviet Union", "Medium Tank", 1940, "76.2 mm F-34 tank gun", "Model V-2-34",
                             47, 40, 45, 4, "https://www.super-hobby.hu/zdjecia/7/7/0/28383_rd.jpg", "The T-34 is a Soviet medium tank introduced in 1940, famously deployed with the Red Army during World War II against Operation Barbarossa."),

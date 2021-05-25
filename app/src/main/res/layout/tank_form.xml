@@ -54,7 +54,8 @@
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/form_type_label"
-        app:layout_constraintTop_toBottomOf="@+id/form_country" />
+        app:layout_constraintTop_toBottomOf="@+id/form_country"
+        android:background="@color/white"/>
 
     <TextView
         android:id="@+id/form_year_label"
